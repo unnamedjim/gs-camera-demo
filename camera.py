@@ -12,7 +12,8 @@ while (True):
         libcamera_process = subprocess.Popen(
             "libcamera-hello -t 0 -f --shutter 400 --framerate 2 -f --brightness 0.3", shell=True)
 
-        os.system("ps -C chromium-browser -o pid=|xargs kill -9")
+        # os.system("ps -C chromium-browser -o pid=|xargs kill -9")
+        os.system("ps -C gpicview -o pid=|xargs kill -9")
 
         time.sleep(10)
 
@@ -25,7 +26,9 @@ while (True):
 
         time.sleep(3)
 
-        webbrowser.open('test.jpg', new=0, autoraise=True)
+        # webbrowser.open('test.jpg', new=0, autoraise=True)
+
+        gpicview_process = subprocess.Popen("gpicview test.jpg", shell=True)
 
         time.sleep(10)
 
